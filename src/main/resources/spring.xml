@@ -6,10 +6,10 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!-- Can also bean by alias -->
+    <!-- Get bean by alias -->
     <alias name="line01" alias="line-one-alias" />
 
-    <!-- Scope: singleton per context by default -->
+    <!-- Scope: singleton, per context by default -->
     <bean id="center" name="origin" class="com.ashwin.java.springbootbeandemo.domain.model.Point" scope="singleton">
         <property name="x" value="0" />
         <property name="y" value="0" />
@@ -25,19 +25,19 @@
         <property name="y" value="10" />
     </bean>
 
-    <!-- Scope: new instance every bean request -->
+    <!-- Scope: prototype, new instance for every bean request -->
     <bean id="dynamicPoint" class="com.ashwin.java.springbootbeandemo.domain.model.Point" scope="prototype">
         <property name="x" value="10" />
         <property name="y" value="10" />
     </bean>
 
     <bean id="triangle01" class="com.ashwin.java.springbootbeandemo.domain.model.Triangle">
-        <!-- constructor injection -->
+        <!-- Constructor injection -->
         <constructor-arg type="java.lang.String" index="0" value="equilateral" />
         <constructor-arg type="double" index="1" value="10"/>
         <constructor-arg type="double" index="2" value="20"/>
 
-        <!-- field injection -->
+        <!-- Field injection -->
         <property name="color" value="red" />
     </bean>
 
@@ -45,7 +45,7 @@
         <!-- ref can be id, name, or alias-->
         <property name="a" ref="center" />
 
-        <!-- inner bean -->
+        <!-- Inner bean -->
         <property name="b">
             <bean class="com.ashwin.java.springbootbeandemo.domain.model.Point">
                 <property name="x" value="10" />
@@ -60,7 +60,7 @@
             <!--<idref bean="center" />-->
         <!--</property>-->
 
-        <!-- inner bean -->
+        <!-- Inner bean -->
         <property name="b">
             <bean id="line02b" class="com.ashwin.java.springbootbeandemo.domain.model.Point">
                 <property name="x" value="10" />
