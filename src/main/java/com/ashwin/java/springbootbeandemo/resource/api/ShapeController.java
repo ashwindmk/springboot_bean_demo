@@ -1,9 +1,6 @@
 package com.ashwin.java.springbootbeandemo.resource.api;
 
-import com.ashwin.java.springbootbeandemo.domain.model.Circle;
-import com.ashwin.java.springbootbeandemo.domain.model.Line;
-import com.ashwin.java.springbootbeandemo.domain.model.Polygon;
-import com.ashwin.java.springbootbeandemo.domain.model.Triangle;
+import com.ashwin.java.springbootbeandemo.domain.model.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.ResponseEntity;
@@ -73,5 +70,13 @@ public class ShapeController {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         Circle circle = (Circle) context.getBean("redCircle");
         circle.draw();
+    }
+
+    @GetMapping
+    @RequestMapping("/sphere")
+    public void sphere() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        Sphere sphere = (Sphere) context.getBean("sphere");
+        sphere.draw();
     }
 }

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util = "http://www.springframework.org/schema/util"
+       xmlns:context = "http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema//context/spring-context.xsd">
 
     <!-- Get bean by alias -->
     <alias name="line01" alias="line-one-alias" />
@@ -107,4 +111,19 @@
     <bean id="redCircle" class="com.ashwin.java.springbootbeandemo.domain.model.Circle" autowire="byName">
         <!-- Autowired -->
     </bean>
+
+    <bean id="sphere" class="com.ashwin.java.springbootbeandemo.domain.model.Sphere">
+        <!-- Autowired in the class -->
+    </bean>
+
+    <!-- Includes all annotation post-processing beans -->
+    <context:annotation-config />
+
+    <!-- Not required if annotation-config is used -->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />-->
+
+    <!-- Validation post-processor -->
+    <!-- deprecated, use @Autowired or @Autowired(required = true) instead
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+    -->
 </beans>
