@@ -1,11 +1,13 @@
 package com.ashwin.java.springbootbeandemo.resource.api;
 
 import com.ashwin.java.springbootbeandemo.domain.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -70,6 +72,17 @@ public class ShapeController {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         Circle circle = (Circle) context.getBean("redCircle");
         circle.draw();
+    }
+
+    @Autowired
+    private Square square;
+
+    @GetMapping
+    @RequestMapping("/square")
+    public void square() {
+        //ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        //Square square = (Square) context.getBean("square");
+        square.draw();
     }
 
     @GetMapping

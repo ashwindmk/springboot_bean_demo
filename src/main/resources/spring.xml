@@ -45,6 +45,12 @@
         <property name="color" value="red" />
     </bean>
 
+    <!--
+    <bean id="square" class="com.ashwin.java.springbootbeandemo.domain.model.Square" autowire="byName">
+        <property name="length" value="12" />
+    </bean>
+    -->
+
     <bean id="line01" name="line-one" class="com.ashwin.java.springbootbeandemo.domain.model.Line">
         <!-- ref can be id, name, or alias-->
         <property name="a" ref="center" />
